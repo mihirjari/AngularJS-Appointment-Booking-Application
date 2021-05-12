@@ -1,0 +1,26 @@
+#homeImage{
+    width: 70%;
+
+}
+#title{
+    position: absolute;
+    font-size: 40px;
+    color: #007BFF;
+    top: 40%;
+    left: 3%;
+   
+}
+
+#btn{
+    position: absolute;
+    top: 60%;
+    left: 3%;
+}
+
+a{
+    font-family: 'Montserrat', sans-serif; 
+    text-decoration: none;
+    padding: 10px 5px 10px 5px;
+    font-weight: bold;
+}
+

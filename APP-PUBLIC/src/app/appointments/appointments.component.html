@@ -1,0 +1,30 @@
+<h1 class="text-center">-: My Appointments :-</h1>
+<div class="container-fluid table-data">
+    <div class="row">
+        <div class="col-md-2"></div>
+        <div class="col-md-8">
+            <table class="table table-hover text-center" id="DataTable">
+                <thead class="bg-primary">
+                  <tr>
+                    <th scope="col">Full Name</th>
+                    <th scope="col">Appointment Date</th>
+                    <th scope="col">Appointment Time</th>
+                    <th scope="col">Action</th>
+                    
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let item of appointmentList">
+                    <td>{{item.fullName}}</td>
+                    <td>{{item.appointmentDate}}</td>
+                    <td>{{item.appointmentTime}}</td>
+                    <td><a routerLink="/appointment/{{item._id}}"> <button mat-raised-button color="primary">View Details</button></a></td>
+                  </tr>
+                 
+                </tbody>
+              </table>
+        </div>
+        <div class="col-md-2"></div>
+    </div>
+</div>
+

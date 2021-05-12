@@ -1,0 +1,67 @@
+<div class="container" id="dataContainer">
+    <div class="row">
+        <div class="col-md-2"></div>
+        <div class="col-md-8">
+            <h1 class="text-center">-: {{appointmentReceived.fullName}}'s Appointment Details :-</h1>
+            <p class="text-center">Full Name: <strong>{{appointmentReceived.fullName}}</strong></p>
+            <p class="text-center">Appointment Date: <strong>{{appointmentReceived.appointmentDate}}</strong></p>
+            <p class="text-center">Appointment Time: <strong>{{appointmentReceived.appointmentTime}}</strong></p>
+            <p class="text-center">Email: <strong>{{appointmentReceived.email}}</strong></p>
+            <p class="text-center">Contact Number: <strong>{{appointmentReceived.contact}}</strong></p>
+        </div>
+        <div class="col-md-2"></div>
+    </div>
+
+   <button type="button" class="btn btn-success" id="updateBtn" (click)="showForm()">Update Appointment</button>
+   <button class="btn btn-danger" id="deleteBtn" (click)="delete()">Delete Appointment</button>
+   <button class="btn btn-info" id="homeBtn"><a routerLink="">Home</a></button>
+</div>
+
+<div class="alert alert-danger alert-dismissible fade" role="alert" id="alert">
+    <strong>Invalid input received or field is empty!</strong> Please check.
+   <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+     <span aria-hidden="true">&times;</span>
+   </button>
+ </div>
+
+<form #appointmentUpdateFormData="ngForm" id="form" class="formHide" (ngSubmit)="updateAppointment(appointmentUpdateFormData)">
+    <mat-form-field>
+        <mat-label>Full Name</mat-label>
+        <input matInput required name="fullname" ngModel={{appointmentReceived.fullName}}>
+    </mat-form-field>
+    
+    
+    <mat-form-field>
+        <mat-label>Choose a date (M-DD-YYYY)</mat-label>
+        <input matInput [min]="minDate" [max]="maxDate" [matDatepicker]="picker" name="date" ngModel required>
+        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+       
+    </mat-form-field>
+
+    <mat-form-field>
+        <mat-label>Select Appointment Time</mat-label>
+        <mat-select [(value)]="selected" required name="time" ngModel={{appointmentReceived.appointmentTime}}>
+          <mat-option value="10:00 AM">10:00 AM</mat-option>
+          <mat-option value="11:00 AM">11:00 AM</mat-option>
+          <mat-option value="12:00 PM">12:00 PM</mat-option>
+          <mat-option value="1:00 PM">1:00 PM</mat-option>
+          <mat-option value="2:00 PM">2:00 PM</mat-option>
+          <mat-option value="3:00 PM">3:00 PM</mat-option>
+          <mat-option value="4:00 PM">4:00 PM</mat-option>
+          <mat-option value="5:00 PM">5:00 PM</mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <mat-form-field>
+        <mat-label>Email</mat-label>
+        <input matInput required name="email" ngModel={{appointmentReceived.email}}>
+    </mat-form-field>
+
+    <mat-form-field>
+        <mat-label>Contact</mat-label>
+        <input matInput required name="contact" ngModel={{appointmentReceived.contact}}>
+    </mat-form-field>
+
+    <button type="submit" class="btn btn-success">Save changes</button>
+    </form>

@@ -1,0 +1,16 @@
+h2{
+    margin-top: 100px;
+    margin-bottom: 50px;
+}
+
+#aboutImage{
+    width: 100%;
+}
+a{
+    text-decoration: none;
+    color: white;
+}
+
+#contact{
+    margin-left: 20px;
+}
